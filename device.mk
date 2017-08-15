@@ -307,3 +307,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.ota.romname=AIM-ROM \
+        ro.ota.version=$(shell date +"%Y%m%d") \
+        ro.ota.manifest=https://raw.githubusercontent.com/AIMROM/OFFICIAL_DEVICES/N/potter.xml
+
+#FOR BUILDING OFFICIAL PACKAGE
+export AIM_BUILDTYPE=OFFICIAL
+
+#FOR EXPORTING WITH MAGISK
+export WITH_MAGISK=true
+
+#FOR ADDING MAINTAINER NAME TO ABOUT DEVICE
+PRODUCT_PROPERTY_OVERRIDES += /
+        ro.aim.maintainer=Manik Chathli
+
+export KBUILD_BUILD_USER=manikchathli
